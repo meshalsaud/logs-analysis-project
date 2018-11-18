@@ -6,14 +6,14 @@ This project to analysis data from news database.we will do three queries:
 
 ## What do you need to use in this project?
 1. postegrsql
-2. python2 or python3 (you need to use DB-API to connect python code with postegr database).
+2. python2 or python3 .
 3. virtual box
 4. virtual machine (vagrant)
 
 ## how run this project? 
 1. install [Virtualbox](https://www.virtualbox.org/)
 2. install virtual machine [Vagrant](https://www.vagrantup.com/)
-3. inside vagrant folder inside virtual machine folder put newsdata.sql file inside vagrant folder.
+3. inside vagrant folder inside virtual machine folder put [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) file inside vagrant folder.
 4. cd into virtual machine folder which vagrant folder inside it.
 5. `vagrant up` to start your VM.
 6. `vagrant ssh` to login to your VM.
@@ -31,7 +31,7 @@ select date(time),count(*) as num from log where status='404 NOT FOUND' group by
 ---
 > create view precentage as
 select all_requist.date,all_requist.num as all_req_num,faild_requist.num as faild_req_num,
-faild_requist.num/all_requist.num*100 as faild_precentage
+100*faild_requist.num::double precision/all_requist.num::double precision as faild_precentage
 from all_requist,faild_requist
 where all_requist.date=faild_requist.date;
 
@@ -39,7 +39,7 @@ where all_requist.date=faild_requist.date;
 > [postgresql Documentation](https://www.postgresql.org/docs/9.2/sql-createview.html)
 > [w3resourses](https://w3resource.com/PostgreSQL/rpad-function.php)
 > [Writing code with DB-API](https://opensourceforu.com/2009/05/database-programming-in-python/)
-> [Vagrant](https://www.vagrantup.com/)
+> [Vagrant](https://github.com/udacity/fullstack-nanodegree-vm/blob/master/vagrant/Vagrantfile)
 > [Virtualbox](https://www.virtualbox.org/)
 
 
